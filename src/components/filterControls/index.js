@@ -1,7 +1,7 @@
 import React from "react";
 import "./filterControls.css";
 
-const FilterControls = props => {
+const FilterControls = (props) => {
   const genres = [
     {id: 1, name: "Animation"},
     {id: 2, name: "Comedy"},

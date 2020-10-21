@@ -5,8 +5,7 @@ const Header = ({ numMovies }) => {
     <div className="row">
       <div className="col-md-6 offset-4">
         <h2>
-          No. Movies{" "}
-          <span className="badge badge-pill badge-success">{numMovies}</span>
+          No. Movies{" "}<span className="badge badge-pill badge-success">{numMovies}</span>
         </h2>
       </div>
     </div>
