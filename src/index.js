@@ -7,6 +7,7 @@ import MoviePage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
+import UpcomingMoviesPage from './pages/upcomingMoviesPage'
 
 const App = () => {
   return (
@@ -14,20 +15,9 @@ const App = () => {
     <div className="jumbotron">
       <SiteHeader />
       <div className="container-fluid">
-        <ul className="navbar-nav text-black">
-          <li className="nav-item">
-            <Link className="nav-link " to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link " to="/movies/favorites">
-              Favorites
-            </Link>
-          </li>
-        </ul>
         <Switch>
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+          <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route path="/" component={HomePage} />
