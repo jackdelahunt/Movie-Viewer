@@ -8,7 +8,7 @@ const ReviewForm = ({ movie, history }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const context = useContext(MoviesContext);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     context.addReview(movie, data)
     history.push("/movies/favorites");
   };
