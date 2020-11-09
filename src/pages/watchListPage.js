@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
-import AddToWatchListButton from '../components/buttons/addToWatchList'
+import RemoveFromWatchList from '../components/buttons/removeFromWatchList'
 
 const WatchListPage = () => {
   const context = useContext(MoviesContext);
@@ -14,7 +14,7 @@ const WatchListPage = () => {
       title="No. Movies"
       movies={movies}  /* Changed */
       action={(movie) => {
-        return <AddToWatchListButton movie={movie} />;
+        return <RemoveFromWatchList movie={movie} />;
       }}
     />
   );

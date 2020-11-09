@@ -50,6 +50,7 @@ const MoviesContextProvider = (props) => {
     dispatch({ type: "add-watch-list", payload: { movie: state.upcoming[index] } });
   };
 
+
   const addReview = (movie, review) => {
     dispatch({ type: "add-review", payload: { movie, review } });
   };
