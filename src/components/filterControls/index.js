@@ -16,6 +16,10 @@ const FilterControls = props => {
     handleChange(e, "genre", e.target.value);
   };
 
+  const handlePageChange = (e) => {
+    handleChange(e, "page", e.target.value);
+  }
+
   return (
     <div className="row bg-warning">
       <div className="col-md-12">
@@ -35,6 +39,13 @@ const FilterControls = props => {
                 </option>
               );
             })}
+          </select>
+          <span>Page:</span>
+          <select id="page" onChange={handlePageChange}>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
           </select>
         </h4>
       </div>

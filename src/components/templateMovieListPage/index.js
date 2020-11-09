@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../headerMovieList";
 import MovieList from "../movieList";
 import FilterControls from "../filterControls";
+import {MoviesContext} from '../../contexts/moviesContext';
 
 const MovieListPageTemplate = ({movies, title, action}) => {
+
+  const context = useContext(MoviesContext);
+
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
@@ -18,14 +22,21 @@ const MovieListPageTemplate = ({movies, title, action}) => {
     });
 
   const handleChange = (type, value) => {
-    if (type === "name") setNameFilter(value);
-    else setGenreFilter(value);
+    if (type === "name") {
+      setNameFilter(value);
+    } else if(type === "genre"){ 
+       setGenreFilter(value);
+    } else if(type === "page") {
+      context.changePage(value);
+    }
   };
 
   return (
     <>
       <Header title={title} numMovies={displayedMovies.length} />
       <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
+
+      {/*action is the button we pass in based on the page*/}
       <MovieList
         action={action}
         movies={displayedMovies}
