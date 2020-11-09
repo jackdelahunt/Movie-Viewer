@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import WatchListButton from '../components/buttons/addToWatchList'
 import {MoviesContext} from '../contexts/moviesContext'
+import AddToWatchListButton from '../components/buttons/addToWatchList'
 
-const UpcomingMovieListPage = () => {
+const WatchListPage = () => {
   const context = useContext(MoviesContext);
   const movies = context.upcoming.filter((m) => {  // New
-    return !("watchList" in m);
+    return ("watchList" in m);
   });
-    
+
   return (
     <PageTemplate
-      title={'Upcoming Movies'}
-      movies={movies}
+      title="No. Movies"
+      movies={movies}  /* Changed */
       action={(movie) => {
-        return <WatchListButton movie={movie} />;
+        return <AddToWatchListButton movie={movie} />;
       }}
     />
   );
 };
 
-export default UpcomingMovieListPage;
+export default WatchListPage;
