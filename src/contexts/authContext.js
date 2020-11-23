@@ -6,8 +6,8 @@ const reducer = (state, action) => {
   
 };
 
-const authenticate = () => {
-
+const authenticate = (username, password) => {
+  console.log("HKSDHKJS");
 }
 
 const signout = () => {
