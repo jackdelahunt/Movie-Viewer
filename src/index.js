@@ -13,17 +13,19 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import AuthContext from "./contexts/authContext";
+import Register from "./pages/registerPage";
 
 const App = () => {
   return (
     <BrowserRouter>
     <div className="jumbotron">
-      <SiteHeader />
       <div className="container-fluid">
         <AuthContext>
           <MoviesContextProvider>
               <GenresContextProvider>
+                <SiteHeader />
                 <Switch>
+                  <Route path="/register" component={Register} />
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />

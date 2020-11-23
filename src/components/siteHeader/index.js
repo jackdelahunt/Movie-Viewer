@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
+import {AuthContext} from "../../contexts/authContext";
 
 const SiteHeader = () => {
-  return (
+
+  const context = useContext(AuthContext);
+
+  let userLink = <></>
+
+  if(context.isAuthenticated) {
+    userLink = (
+      <li>
+        <Link className="nav-link text-white" to="/">
+          Log Out
+        </Link>
+      </li>
+    );
+  } else {
+    userLink = (
+      <li>
+        <Link className="nav-link text-white" to="/register">
+          Log In
+        </Link>
+      </li>
+    );
+  }
+
+  const header = (
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
       <nav className="navbar-brand text-white">
         <Link className=" text-white" to="/">
@@ -47,10 +71,13 @@ const SiteHeader = () => {
               Watch List
             </Link>
           </li>
+          {userLink}
         </ul>
       </nav>
     </nav>
   );
+
+  return header;
 };
 
 export default SiteHeader;
