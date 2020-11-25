@@ -1,7 +1,7 @@
-const { red } = require("@material-ui/core/colors");
+import React from "react";
 const { useContext } = require("react");
-const { Redirect } = require("react-router-dom");
-const { AuthContext } = require("../../contexts/authContext")
+const { Redirect, Router, Route} = require("react-router-dom");
+const { AuthContext } = require("../../contexts/authContext");
 
 const PrivateRoute = (props) => {
     const context = useContext(AuthContext);
@@ -13,9 +13,11 @@ const PrivateRoute = (props) => {
     ) : (
         <Redirect 
             to={{
-                pathname: "/login",
+                pathname: "/register",
                 state: { from: props.location }
             }}
         />
     );
 }
+
+export default PrivateRoute;

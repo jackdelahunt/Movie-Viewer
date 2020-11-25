@@ -5,14 +5,17 @@ import useForm from "react-hook-form";
 
 const RegisterPage = (props) => {
     const context = useContext(AuthContext);
-    const { register, handleSubmit, errors, reset } = useForm();
+    const { register, handleSubmit, } = useForm();
+    const {from} = props.location.state || {from: {pathname: "/"}};
 
     const onSubmit = (data) => {
-        console.log(data);
+        context.authenticate(data);
+        console.log(context.isAuthenticated);
+        
     }
 
     if(context.isAuthenticated) {
-        return <Redirect to="/" />;
+        return <Redirect to={from} />;
     }
 
     return (
@@ -38,18 +41,6 @@ const RegisterPage = (props) => {
             </div>    
             <button type="submit" className="btn btn-primary">
             Submit
-            </button>
-            <button
-                type="reset"
-                className="btn btn-primary reset"
-                onClick={() => {
-                reset({
-                    username: "",
-                    password: ""
-                });
-                }}
-            >
-                Reset
             </button>
         </form>
       );

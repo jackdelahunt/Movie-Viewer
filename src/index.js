@@ -1,4 +1,5 @@
 import React from "react";
+import PrivateRoute from "./components/routes/privateRoute";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -29,7 +30,7 @@ const App = () => {
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-                  <Route exact path="/movies/watchList" component={WatchListPage} />
+                  <PrivateRoute path="/movies/watchList" component={WatchListPage} />
                   <Route path="/movies/:id" component={MoviePage} />
                   <Route path="/reviews/:id" component={MovieReviewPage} />
                   <Route path="/" component={HomePage} />
