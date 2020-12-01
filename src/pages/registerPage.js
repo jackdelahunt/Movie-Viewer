@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Redirect, Router } from "react-router-dom";
 import {AuthContext} from "../contexts/authContext";
 import useForm from "react-hook-form";
 
@@ -10,11 +10,18 @@ const RegisterPage = (props) => {
 
     const onSubmit = (data) => {
         context.authenticate(data);
-        console.log(context.isAuthenticated);
-        
     }
 
-    if(context.isAuthenticated) {
+    useEffect(() => {
+        console.log("The eagle has landed")
+        if(context.isAuthenticated) {
+            console.log("light this candle")
+            goBack();
+        }
+    }, [context.isAuthenticated]);
+
+    const goBack = () => {
+        console.log("i hear the train a comin")
         return <Redirect to={from} />;
     }
 
@@ -43,7 +50,7 @@ const RegisterPage = (props) => {
             Submit
             </button>
         </form>
-      );
+    );
 };
 
 export default RegisterPage;

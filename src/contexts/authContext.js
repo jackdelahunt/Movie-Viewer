@@ -7,13 +7,26 @@ const reducer = (state, action) => {
   switch(action.type) {
 
     case "load":
-      return {users: action.payload.users}
-    case "addNewUser":
       return {
-        users: [...state.users, action.payload.user]
+        users: action.payload.users,
+        isAuthenticated: state.isAuthenticated
+      };
+    case "addNewUser":
+      let ret = {
+        users: [...state.users, action.payload.user],
+        isAuthenticated: state.isAuthenticated
+      }
+      return ret;
+    case "authenticate":
+      return {
+        users: state.users,
+        isAuthenticated: true
       }
       default:
-        return {users: state.users};
+        return {
+          users: state.users,
+          isAuthenticated: state.isAuthenticated,
+        };
   }
 };
 
@@ -25,11 +38,7 @@ const AuthContextProvider = (props) => {
 
   let isAuthenticated = false;
 
-  const [state, dispatch] = useReducer(reducer, { users: [], });
-
-  const addUser = (user) => {
-    dispatch({ type: "addNewUser", payload: { user } });
-  }
+  const [state, dispatch] = useReducer(reducer, { users: [], isAuthenticated: false});
 
   useEffect(() => {
     const users = getUsers();
@@ -37,28 +46,29 @@ const AuthContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const authenticate = (data) => {
-    if(!data.username && !data.password) return;
+  const authenticate = (user) => {
+    if(!user.username && !user.password) return;
 
     // does user already exist?
     const index = state.users.map((element) => {
-      if(element.username === data.username) {
-        return data;
+      if(element.username === user.username) {
+        return user;
       } else {
         return {};
       }
-    }).indexOf(data);
+    }).indexOf(user);
 
-    if(index > 0) {
-      dispatch({type: "addNewUser", payload: {data}});
+    if(index < 0) {
+      dispatch({ type: "addNewUser", payload: { user } });
     }
-    isAuthenticated = true;
+
+    dispatch({type: "authenticate", payload: {}})
   }
 
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated: isAuthenticated,
+        isAuthenticated: state.isAuthenticated,
         authenticate: authenticate,
         signout: signout,
       }}
