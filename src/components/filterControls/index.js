@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
 
-const FilterControls = props => {
+const FilterControls = (props) => {
   const context = useContext(GenresContext);
 
   const handleChange = (e, type, value) => {
@@ -19,6 +19,19 @@ const FilterControls = props => {
   const handlePageChange = (e) => {
     handleChange(e, "page", e.target.value);
   }
+
+  const pageNumberSelect = props.pageFilter ? 
+  <>
+  <span>Page:</span>
+  <select id="page" onChange={handlePageChange}>
+    <option>1</option> 
+    <option>2</option> {/* clean this up at some point */}
+    <option>3</option>
+    <option>4</option>
+  </select>
+  </>
+  :
+  <> </>;
 
   return (
     <div className="row bg-warning">
@@ -40,13 +53,7 @@ const FilterControls = props => {
               );
             })}
           </select>
-          <span>Page:</span>
-          <select id="page" onChange={handlePageChange}>
-            <option>1</option> 
-            <option>2</option> {/* clean this up at some point */}
-            <option>3</option>
-            <option>4</option>
-          </select>
+          {pageNumberSelect}
         </h4>
       </div>
     </div>

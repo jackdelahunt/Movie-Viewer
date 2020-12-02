@@ -1,8 +1,13 @@
 import React from "react";
 import MovieHeader from '../headerMovie'
 import "./moviePage.css";
+import {Link} from 'react-router-dom'
+import {useParams} from 'react-router' 
 
 const TemplateMoviePage = ({ movie, children }) => {
+
+  const {id} = useParams();
+
   return (
     <>
       <MovieHeader movie={movie} />
@@ -17,6 +22,9 @@ const TemplateMoviePage = ({ movie, children }) => {
             className="movie"
             alt={movie.title}
           />
+        <Link className="btn btn-primary btn-block active" to={`/movies/${id}/similar`}>
+          See Similar
+        </Link>
         </div>
         <div className="col-9">{children}</div>
       </div>

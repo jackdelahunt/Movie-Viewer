@@ -12,6 +12,7 @@ const WatchListPage = () => {
     <PageTemplate
       title="No. Movies"
       movies={movies}  /* Changed */
+      pageFilter= {false}
       action={(movie) => {
         return <></>; /* no button needed for the watch list page */
       }}

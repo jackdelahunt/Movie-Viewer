@@ -10,6 +10,7 @@ const FavoriteMoviesPage = props => {
     <MovieListPageTemplate
       movies={favorites}
       title={"Favorite Movies"}
+      pageFilter= {false}
       action={movie => <AddReviewButton movie={movie} />}
     />
   );

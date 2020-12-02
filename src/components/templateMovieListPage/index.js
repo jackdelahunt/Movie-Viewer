@@ -4,7 +4,7 @@ import MovieList from "../movieList";
 import FilterControls from "../filterControls";
 import {MoviesContext} from '../../contexts/moviesContext';
 
-const MovieListPageTemplate = ({movies, title, action}) => {
+const MovieListPageTemplate = ({movies, title, action, pageFilter}) => {
 
   const context = useContext(MoviesContext);
 
@@ -34,7 +34,7 @@ const MovieListPageTemplate = ({movies, title, action}) => {
   return (
     <>
       <Header title={title} numMovies={displayedMovies.length} />
-      <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
+      <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length} pageFilter={pageFilter}/>
 
       {/*action is the button we pass in based on the page*/}
       <MovieList
