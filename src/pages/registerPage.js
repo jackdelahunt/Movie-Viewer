@@ -10,6 +10,7 @@ export default function(props) {
 
     const onSubmit = (data) => {
         context.authenticate(data);
+        context.login(data);
     }
 
     if(context.isAuthenticated) {

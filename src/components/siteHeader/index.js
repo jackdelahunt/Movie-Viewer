@@ -7,11 +7,13 @@ import {AuthContext} from "../../contexts/authContext";
 
 const SiteHeader = () => {
 
-  const context = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
 
   let userLink = <></>
 
-  if(context.isAuthenticated) {
+  let headerText = authContext.isAuthenticated ? authContext.user.username : "For the movie enthusiast !!";
+
+  if(authContext.isAuthenticated) {
     userLink = (
       <li>
         <Link className="nav-link text-white" to="/">
@@ -42,7 +44,7 @@ const SiteHeader = () => {
         size="3x"
       />
       <span className="navbar-text text-light">
-        For the movie enthusiast !!
+        {headerText}
       </span>
       <FontAwesomeIcon
         className="navbar-text text-light"
