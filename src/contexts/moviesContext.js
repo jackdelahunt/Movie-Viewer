@@ -87,7 +87,7 @@ const MoviesContextProvider = (props) => {
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
-        pageNumber: 1,
+        pageNumber: state.pageNumber,
         addToFavorites: addToFavorites,
         addReview: addReview,
         addToWatchList: addToWatchList,

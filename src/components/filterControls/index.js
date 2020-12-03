@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import "./filterControls.css";
-import { GenresContext } from '../../contexts/genresContext' 
+import { GenresContext } from '../../contexts/genresContext'; 
+import {MoviesContext} from '../../contexts/moviesContext';
 
 const FilterControls = (props) => {
-  const context = useContext(GenresContext);
+  const genreContext = useContext(GenresContext);
+  const movieContext = useContext(MoviesContext)
 
   const handleChange = (e, type, value) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const FilterControls = (props) => {
   const pageNumberSelect = props.pageFilter ? 
   <>
   <span>Page:</span>
-  <select id="page" onChange={handlePageChange}>
+  <select id="page" onChange={handlePageChange} value={movieContext.pageNumber}>
     <option>1</option> 
     <option>2</option> {/* clean this up at some point */}
     <option>3</option>
@@ -45,7 +47,7 @@ const FilterControls = (props) => {
           />
           <span>Genre:</span>
           <select id="genre" onChange={handleGenreChange}>
-            {context.genres.map(genre => {
+            {genreContext.genres.map(genre => {
               return (
                 <option key={genre.id} value={genre.id}>
                   {genre.name}

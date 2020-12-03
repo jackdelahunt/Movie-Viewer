@@ -23,7 +23,7 @@ const TemplateMoviePage = ({ movie, children }) => {
             alt={movie.title}
           />
         <Link className="btn btn-primary btn-block active" to={`/movies/${id}/similar`}>
-          See Similar
+          See Similar Movies
         </Link>
         </div>
         <div className="col-9">{children}</div>
