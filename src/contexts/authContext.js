@@ -38,7 +38,12 @@ const reducer = (state, action) => {
         isAuthenticated: state.isAuthenticated,
         user: state.user
       }
-
+    case "logout":
+      return {
+        users: state.users,
+        isAuthenticated: false,
+        user: {}
+      }
       default:
         return {
           users: state.users,
@@ -47,10 +52,6 @@ const reducer = (state, action) => {
         };
   }
 };
-
-const signout = () => {
-
-}
 
 const AuthContextProvider = (props) => {
 
@@ -87,13 +88,17 @@ const AuthContextProvider = (props) => {
     dispatch({type: "login", payload: {user}});
   }
 
+  const logout = () => {
+    dispatch( {type: "logout", payload: {}} );
+  }
+
   return (
     <AuthContext.Provider
       value={{
         user: state.user,
         isAuthenticated: state.isAuthenticated,
         authenticate: authenticate,
-        signout: signout,
+        logout: logout,
         login: login,
       }}
     >

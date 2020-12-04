@@ -4,32 +4,25 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
 import {AuthContext} from "../../contexts/authContext";
+import LogoutButton from "../buttons/logout"
 
 const SiteHeader = () => {
 
   const authContext = useContext(AuthContext);
 
-  let userLink = <></>
-
   let headerText = authContext.isAuthenticated ? authContext.user.username : "For the movie enthusiast !!";
 
-  if(authContext.isAuthenticated) {
-    userLink = (
-      <li>
-        <Link className="nav-link text-white" to="/">
-          Log Out
-        </Link>
-      </li>
-    );
-  } else {
-    userLink = (
-      <li>
+  let userLink = authContext.isAuthenticated ?
+  <li>
+        <LogoutButton action={authContext.logout}/>
+  </li>
+  :
+  <li>
         <Link className="nav-link text-white" to="/register">
           Log In
         </Link>
-      </li>
-    );
-  }
+  </li>
+
 
   const header = (
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
