@@ -1,7 +1,5 @@
 import React from "react";
 import DetailsHeader from '../detailsHeader'
-import {Link} from 'react-router-dom'
-import {useParams} from 'react-router' 
 import "./actorPage.css";
 
 const TemplateActorPage = ({ actor, children}) => {

@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
+import {AuthContext} from "../../contexts/authContext"
+import { Redirect } from "react-router-dom";
 
-const WatchListButton = ({ movie }) => {
-    const context = useContext(MoviesContext);
+export default function({movie}) {
+    const moviesContext = useContext(MoviesContext);
 
     const handleAddToWatchList = e => {
-      e.preventDefault();
-      context.addToWatchList(movie.id);
+        e.preventDefault();
+        moviesContext.addToWatchList(movie.id);
     };
+
     return (
       <button
         type="button"
@@ -18,5 +21,3 @@ const WatchListButton = ({ movie }) => {
       </button>
     );
 };
-
-export default WatchListButton;
