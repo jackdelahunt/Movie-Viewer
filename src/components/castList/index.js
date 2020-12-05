@@ -1,10 +1,10 @@
 import React from "react";
-import CastCard from "../castCard"
+import ActorCard from "../actorCard"
 
 const CastList = (props) => {
   
   const castCards = props.cast.map(c => (
-    <CastCard castMember={c} />
+    <ActorCard actor={c} />
   ));
 
   return <div className="row movies bg-info">{castCards}</div>;
