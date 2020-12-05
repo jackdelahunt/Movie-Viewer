@@ -13,6 +13,9 @@ const TemplateMoviePage = ({ movie, children }) => {
       <MovieHeader movie={movie} />
       <div className="row">
         <div className="col-3">
+        <Link className="btn btn-primary btn-block active" to={`/movies/${id}/cast`}>
+          See {movie.title} Cast
+        </Link>
           <img
             src={
               movie.poster_path
@@ -23,7 +26,7 @@ const TemplateMoviePage = ({ movie, children }) => {
             alt={movie.title}
           />
         <Link className="btn btn-primary btn-block active" to={`/movies/${id}/similar`}>
-          See Similar Movies
+          See Similar Movies To {movie.title}
         </Link>
         </div>
         <div className="col-9">{children}</div>
