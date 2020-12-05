@@ -23,4 +23,13 @@ p {
 .character-name {
   width: 1em;
   text-align: center;
+  font-weight: 600;
+}
+
+.as {
+  width: 1em;
+  text-align: center;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  border-bottom: 0ch;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import MovieHeader from '../headerMovie'
+import DetailsHeader from '../detailsHeader'
 import "./moviePage.css";
 import {Link} from 'react-router-dom'
 import {useParams} from 'react-router' 
@@ -10,7 +10,7 @@ const TemplateMoviePage = ({ movie, children }) => {
 
   return (
     <>
-      <MovieHeader movie={movie} />
+      <DetailsHeader title={movie.title} link={movie.homepage} />
       <div className="row">
         <div className="col-3">
         <Link className="btn btn-primary btn-block active" to={`/movies/${id}/cast`}>

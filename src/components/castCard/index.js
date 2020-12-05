@@ -13,24 +13,23 @@ const CastCard = ({castMember}) => {
       <div className="card  bg-white">
       
         <div className="card-body">
-        <img
-        className="card-img-tag center"
-        src={
-          castMember.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}`
-            : `./film-poster-placeholder.png`
-        }
-        />
+        <Link to={`/actors/${castMember.id}`}>
+          <img
+          className="card-img-tag center"
+          src={
+            castMember.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}`
+              : `./film-poster-placeholder.png`
+          }
+          />
+        </Link>
         </div>
         <div className="card-body">
           <h4 className="card-title ">{castMember.name}</h4>
-          <p>
-      <span className="character-name"> <p>{castMember.character}</p></span>
-          </p>
-          <p>
+          <span className="as"><p>as</p></span>
+          <span className="character-name"><p>{castMember.character}</p></span>
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {castMember.popularity}</span>
-          </p>
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ import AuthContext from "./contexts/authContext";
 import Register from "./pages/registerPage";
 import SimilarMoviesPage from './pages/similarMoviesPage';
 import CastListPage from "./pages/castListPage";
+import ActorPage from "./pages/actorDetailsPage";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
                 <SiteHeader />
                 <Switch>
                   <Route path="/register" component={Register} />
+                  <Route exact path="/actors/:id" component={ActorPage} />
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
