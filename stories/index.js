@@ -15,6 +15,7 @@ import { action } from "@storybook/addon-actions";
 import FavoriteMoviesPage from "../src/pages/favoritesMoviesPage";
 import LogoutButton from "../src/components/buttons/logout";
 import CastCard from "../src/components/castCard"
+import useCast from "../src/hooks/useCast";
 
 const sample = {
   adult: false,
@@ -97,6 +98,21 @@ const sample = {
   vote_count: 9692
 };
 
+const castMember = {
+  "adult": false,
+  "gender": 2,
+  "id": 819,
+  "known_for_department": "Acting",
+  "name": "Edward Norton",
+  "original_name": "Edward Norton",
+  "popularity": 7.861,
+  "profile_path": "/5XBzD5WuTyVQZeS4VI25z2moMeY.jpg",
+  "cast_id": 4,
+  "character": "The Narrator",
+  "credit_id": "52fe4250c3a36847f80149f3",
+  "order": 0
+}
+
 storiesOf("Home Page/MovieCard", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
@@ -171,4 +187,4 @@ storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
-  .add("Cast", () => <CastCard />)
+  .add("Cast", () => <CastCard castMember={castMember}/>)

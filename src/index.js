@@ -16,6 +16,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import AuthContext from "./contexts/authContext";
 import Register from "./pages/registerPage";
 import SimilarMoviesPage from './pages/similarMoviesPage';
+import CastListPage from "./pages/castListPage";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
                   <Route exact path="/movies/:id" component={MoviePage} />
                   <Route exact path="/movies/:id/reviews" component={MovieReviewPage} />
                   <Route path="/movies/:id/similar" component={SimilarMoviesPage} />
+                  <Route path="/movies/:id/cast" component={CastListPage} />
                   <Route path="/" component={HomePage} />
                   <Redirect from="*" to="/" />
                 </Switch>
