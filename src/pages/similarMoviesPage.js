@@ -15,7 +15,7 @@ const SimilarMoviesPage = (props) => {
       movies={similar}  /* Changed */
       pageFilter= {false}
       action={(movie) => {
-        return <AddToFavoritesButton movie={movie} />;
+        return (<> </>);
       }}
     />
   );

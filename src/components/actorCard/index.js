@@ -17,7 +17,7 @@ const ActorCard = ({actor}) => {
           src={
             actor.profile_path
               ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-              : `./film-poster-placeholder.png`
+              : require(`./film-poster-placeholder.png`)
           }
           />
         </Link>
