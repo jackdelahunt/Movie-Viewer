@@ -15,6 +15,15 @@ export default ({ actor }) => {
             {actor.birthday}
           </li>
         </ul>
+        {actor.deathday ?
+        <ul className="list-group list-group-horizontal">
+          <li key="ruh" className="list-group-item list-group-item-dark">
+            Deathday (yy/mm/dd)
+          </li>
+          <li key="rut" className="list-group-item ">
+            {actor.deathday}
+          </li>
+        </ul> : <></>}
         <ul className="list-group list-group-horizontal">
           <li key="rdh" className="list-group-item list-group-item-dark">
             Place of Birth
