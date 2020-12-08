@@ -34,7 +34,7 @@ const Gridlist = ({movies}) => {
 
     return (
         <div className={classes.root}>
-          <GridList className={classes.gridList} cols={2} cellHeight={500}>
+          <GridList className={classes.gridList} cols={3.5} cellHeight={600}>
             {movies.map((movie) => (
               <GridListTile key={movie.poster_path}>
                 <Link to={`/movies/${movie.id}`}>

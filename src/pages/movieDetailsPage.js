@@ -5,7 +5,7 @@ import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 
-const MoviePage = props => {
+const MovieDetialsPage = props => {
   const { id } = props.match.params;
   const [movie] = useMovie(id);
   return (
@@ -46,4 +46,4 @@ const MoviePage = props => {
   );
 };
 
-export default withRouter(MoviePage);
+export default withRouter(MovieDetialsPage);

@@ -7,6 +7,7 @@ export default ({ actor }) => {
     <>
       <h4>Overview</h4>
       <ul className="list-group list-group-vertical">
+        {actor.birthday ?
         <ul className="list-group list-group-horizontal">
           <li key="ruh" className="list-group-item list-group-item-dark">
             Birthday (yy/mm/dd)
@@ -15,6 +16,7 @@ export default ({ actor }) => {
             {actor.birthday}
           </li>
         </ul>
+        : <></>}
         {actor.deathday ?
         <ul className="list-group list-group-horizontal">
           <li key="ruh" className="list-group-item list-group-item-dark">
@@ -24,6 +26,7 @@ export default ({ actor }) => {
             {actor.deathday}
           </li>
         </ul> : <></>}
+        {actor.place_of_birth ?
         <ul className="list-group list-group-horizontal">
           <li key="rdh" className="list-group-item list-group-item-dark">
             Place of Birth
@@ -32,6 +35,7 @@ export default ({ actor }) => {
             {actor.place_of_birth}
           </li>
         </ul>
+        : <></>}
         <p>{actor.biography}</p>
       </ul>
       </>

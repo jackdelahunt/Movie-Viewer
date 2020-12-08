@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
-import MoviePage from './pages/movieDetailsPage'
+import MovieDetialsPage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
@@ -35,7 +35,7 @@ const App = () => {
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                   <PrivateRoute path="/movies/watchList" component={WatchListPage} />
-                  <Route exact path="/movies/:id" component={MoviePage} />
+                  <Route exact path="/movies/:id" component={MovieDetialsPage} />
                   <Route exact path="/movies/:id/reviews" component={MovieReviewPage} />
                   <Route path="/movies/:id/similar" component={SimilarMoviesPage} />
                   <Route path="/movies/:id/cast" component={CastListPage} />
