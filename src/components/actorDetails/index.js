@@ -2,7 +2,7 @@ import React from "react";
 import "./movieDetails.css";
 
 
-export default ({ actor }) => {
+const ActorDetails = ({ actor }) => {
   return (
     <>
       <h4>Overview</h4>
@@ -41,3 +41,5 @@ export default ({ actor }) => {
       </>
   );
 };
+
+export default ActorDetails;
