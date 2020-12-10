@@ -4,6 +4,7 @@ import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
+import MovieVideos from "../components/movieVideos";
 
 const MovieDetialsPage = props => {
   const { id } = props.match.params;
@@ -14,7 +15,8 @@ const MovieDetialsPage = props => {
       <>
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
-        </PageTemplate>
+          <MovieVideos movie={movie} />
+        
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
@@ -38,6 +40,7 @@ const MovieDetialsPage = props => {
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
         />
+        </PageTemplate>
       </>
     ) : (
       <p>Waiting for movie details</p>
